@@ -123,5 +123,27 @@
     c. kubectl get om # View the OM resource
     d. kubectl get pods # See the OM Pod status
 
+3. Create a Service to access from Outside the Cluster:
+    a. Sample file
+    {
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: ops-manager
+        spec:
+          externalTrafficPolicy: Cluster
+          ports:
+          - protocol: TCP
+            nodePort: 30080
+            port: 8080
+          selector:
+            app: ops-manager-pod-spec-svc
+          type: NodePort
+    }
+    b. kubectl apply -f ops-svc.yaml
+    c. kubectl get svc  
+
+# Users can now access Ops Manager with http://opsmgr:30080 
+  User<------>30080:[OM-NodePort-SVC]<------>8080:[OM-SVC]<--->[OM Pod]
     
         
