@@ -22,7 +22,7 @@
     apiVersion: v1
     kind: ConfigMap
     metadata:
-        name: kube-config ------------------------------------------------------------------------------|
+        name: kube-config <-----------------------------------------------------------------------------|
         namespace: mongodb                                                                              |
     data:                                                                                               |
         projectName: kubeorg # Project Name that gets Created when deployment MongoDB Resource          |
@@ -41,7 +41,7 @@
         apiVersion: v1                                              |-----------------------------------|
         kind: Secret                                                |
         metadata:                                                   |
-            name: opsmgr-credentials  ------------------------------|
+            name: opsmgr-credentials  <-----------------------------|
             namespace: mongodb                                      |
         stringData:                                                 |
             user: QHZFJYXE                                          |
@@ -65,8 +65,8 @@
           version: 4.2.1-ent                                        |
           opsManager:                                               |
             configMapRef:                                           |
-            name: kube-config --------------------------------------|
-          credentials: opsmgr-credentials --------------------------|
+            name: kube-config <-------------------------------------|
+          credentials: opsmgr-credentials <-------------------------|
           type: ReplicaSet
           persistent: true   
     }
@@ -144,6 +144,6 @@
     c. kubectl get svc  
 
 # Users can now access Ops Manager with http://opsmgr:30080 
-  User<------>30080:[OM-NodePort-SVC]<------>8080:[OM-SVC]<--->[OM Pod]
+  User<------> 30080:[OM-NodePort-SVC] <------> 8080:[OM-SVC] <---> [OM Pod]
     
         
