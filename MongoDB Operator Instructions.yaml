@@ -73,10 +73,10 @@
 
 2. Create Ops Manager Admin Secret, first user login :
     a. kubectl create secret generic ops-manager-admin-secret \
-        --from-literal=Username="roshan.bharti@mongodb.com" \
+        --from-literal=Username="test@test.com" \
         --from-literal=Password="Mongodb@123" \
-        --from-literal=FirstName="Roshan" \
-        --from-literal=LastName="Bharti"
+        --from-literal=FirstName="Test" \
+        --from-literal=LastName="User"
                                                                                                             
                                                                                                             
 2. Deploy Ops Manager resource :                                                                            
