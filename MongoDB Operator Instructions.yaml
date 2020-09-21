@@ -24,7 +24,7 @@
     data:                                                                                               
         projectName: kubeorg # Project Name that gets Created when deployment MongoDB Resource          
         orgId: 5f2c40ea25825d0071e6adbd                                                                 
-        baseUrl: http://ec2-13-234-204-184.ap-south-1.compute.amazonaws.com:81 # Ops Manager URL                                                                                                         
+        baseUrl: http://ec2.ap-south-1.compute.amazonaws.com:81 # Ops Manager URL                                                                                                         
                                                                                                         
    b. kubectl apply -f kube-config.yaml :                                                               
    c. kubectl get configmap :                                                                           
@@ -39,7 +39,7 @@
             namespace: mongodb                                      
         stringData:                                                 
             user: QHZFJYXE                                          
-            publicApiKey: 474cf6ae-e915-4b7e-bde9-3f7c72e91211                                                                   
+            publicApiKey: 474cf6ae-e915-4b7e-bde9-abcdefghiklh                                                                   
                                                                     
    b. kubectl apply -f opsmgr-credentials.yaml                   
                                                                     
