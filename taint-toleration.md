@@ -68,3 +68,25 @@ my-replica-set-0                               1/1     Running   0          2m59
 taintcheckone-0                                1/1     Running   0          5m54s   10.47.0.3   ip-172-31-6-190.ap-south-1.compute.internal   <none>           <none>
 taintcheckone-1                                1/1     Running   0          5m6s    10.47.0.5   ip-172-31-6-190.ap-south-1.compute.internal   <none>           <none>
 ```
+
+Notice the **sts** of **taintcheckone** includes `tolerations` spec, while there is no such spec in other deployment. 
+
+- The following spec is passed over to the statefulset. 
+```
+    podTemplate:
+      spec:
+        tolerations:
+          - key: "node"
+            operator: "Equal"
+            value: "ip-172-31-6-190.ap-south-1.compute.internal"
+            effect: "NoSchedule"
+```
+
+- Snippet from `k get sts taintcheckone -o yaml`.
+```
+      tolerations:
+      - effect: NoSchedule
+        key: node
+        operator: Equal
+        value: ip-172-31-6-190.ap-south-1.compute.internal
+```
