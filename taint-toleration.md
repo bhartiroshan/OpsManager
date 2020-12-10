@@ -1,13 +1,17 @@
 ### Nodes list
+```
 (base) Roshans-MacBook-Pro:data roshanbharti$ k get nodes
 NAME                                          STATUS   ROLES    AGE   VERSION
 ip-172-31-2-53.ap-south-1.compute.internal    Ready    master   85d   v1.19.1
 ip-172-31-6-190.ap-south-1.compute.internal   Ready    <none>   84d   v1.19.2
 ip-172-31-9-162.ap-south-1.compute.internal   Ready    <none>   84d   v1.19.2
+```
 
 ### Taint the node
+```
 (base) Roshans-MacBook-Pro:data roshanbharti$ k taint nodes ip-172-31-6-190.ap-south-1.compute.internal node=ip-172-31-6-190.ap-south-1.compute.internal:NoSchedule
 node/ip-172-31-6-190.ap-south-1.compute.internal tainted
+```
 
 Example taint-toleration.yaml YAML:
 ```
@@ -50,8 +54,10 @@ spec:
   version: 4.2.8-ent
 ```
 
+```
 (base) Roshans-MacBook-Pro:kubeadmcluster roshanbharti$ k apply -f taint-toleration.yaml 
 (base) Roshans-MacBook-Pro:kubeadmcluster roshanbharti$ k apply -f my-replica-set.yaml 
+```
 
 ### Notice that this deployment is going to only `ip-172-31-6-190` while the other on `ip-172-31-9-162`.
 ```
