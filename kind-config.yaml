@@ -20,9 +20,9 @@ nodes:
     - containerPort: 30080
       hostPort: 8080
       protocol: TCP
+    - containerPort: 30081
+      hostPort: 8081
+      protocol: TCP
 
 - role: worker
-  extraPortMappings:
-    - containerPort: 30081
-      hostPort: 8080
-      protocol: TCP
+
